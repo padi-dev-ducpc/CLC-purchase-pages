@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine collapse Plugins -->
+    <script
+      defer
+      src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
+    ></script>
+
+    <!-- Alpine CDN -->
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+</head>
+
+<body>
+<div>
+    <nav class="h-32 bg-gray-800">
+        <div class="inset-x-0 bottom-0 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div class="relative flex h-16 flex-row-reverse items-center justify-between">
+            <div class="mt-20 absolute inset-y-0 right-0 flex space-x-6 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              <button type="button" class="border border-white rounded-lg bg-black w-11/12 h-16 p-1 text-white hover:cursor-pointer">
+                <span>Connect wallet</span>
+              </button>
+      
+              <button type="button" class="">
+                <img class="h-18 w-20" src="./icon-shopping-bag.svg" alt="">
+              </button>
+            </div>
+          </div>
+        </div>
+    </nav>
+    <div class="bg-gray-800 flex justify-center h-80">
+        <img class="object-cover border border-[#243c5a] rounded-lg h-48 w-96" src="./Logo-CLC-text-white.png" alt="">
+    </div>
+    <div class="bg-gray-800 flex justify-center space-x-20 pb-32 max-[1000px]:flex-col max-[1000px]:space-x-0 max-[1000px]:items-center">
+        <div class="rounded-md bg-black w-5/12 h-4/6 pb-44 max-[1000px]:w-8/12 max-[1000px]:h-3/6 max-[724px]:h-2/6 max-[430px]:w-11/12">
+            <div class="w-full rounded-t-lg pb-1 bg-gradient-to-r from-[#40f7eb] from-20% to-[#07706d] to-50%">
+                <div class="flex justify-center items-center p-6 h-full w-full rounded-t-md bg-black back">
+                    <h1 class="text-3xl max-[1280px]:text-2xl max-[724px]:text-xl max-[556px]:text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#40f7eb] via-[#bb50cc] to-[#148058]">
+                        CLC EXCLUSIVE MEMBERSHIP NFT
+                    </h1>
+                </div>
+            </div>
+            <div class="pt-10 pl-16 max-[724px]:pl-6">
+                <ul class="text-white list-inside list-image-[url(cellular-network.svg)] inline-block max-[724px]:text-sm  max-[556px]:text-xs">
+                    <li>
+                        <h1 class="text-4xl max-[724px]:text-xl font-bold inline">NFT & Perks</h1>
+                        <ul class="list-disc list-inside font-medium pt-5 pl-10 pb-5 max-[724px]:pl-4">
+                            <li>Exclusive content</li>
+                            <li>Early access to events & merch</li>
+                            <li>Interaction opportunities</li>
+                            <li>Special discounts</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h1 class="text-4xl max-[724px]:text-xl text-gray-400 font-bold inline">Mystery Colours</h1>
+                        <ul class="list-none list-inside font-medium pt-5 pl-10 pb-5 max-[724px]:pl-4">
+                            <li>A surprise color variation with each NFT purchase.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h1 class="text-4xl max-[724px]:text-xl text-gray-400 font-bold inline">Limited Availability</h1>
+                        <ul class="list-none list-inside font-medium pt-5 pl-10 max-[724px]:pl-4">
+                            <li>Secure your NFT today, only 1,000 available!</li>
+                        </ul>
+                    </li>
+                  </ul>
+            </div>
+        </div>
+        <div class="flex flex-col space-y-14 w-4/12 max-[1000px]:w-8/12 max-[1000px]:pt-16 max-[430px]:w-11/12">
+            <div class="bg-white w-full h-96"></div>
+            <div class="bg-white rounded-md w-full h-3/6 max-[1000px]:h-3/6">
+                <div class="flex flex-row justify-center space-x-6 max-[1242px]:space-x-2 pt-10">
+                    <div class="bg-gray-100 rounded-lg w-44 max-[1242px]:w-36 max-[923px]:w-32 h-24">
+                        <div class="p-2">
+                            <h5 class="text-gray-600">Current Price</h5>
+                            <h1 class="text-xl font-medium text-black">0.05 ETH</h1>
+                            <h5 class="text-gray-400">$ 5,000</h5>
+                        </div>
+                    </div>
+                    <div class="bg-gray-100 rounded-lg w-44 max-[1242px]:w-36 max-[923px]:w-32 h-24">
+                        <div class="p-2">
+                            <h5 class="text-gray-600">Owners</h5>
+                            <h1 class="text-xl font-medium text-black">102/1000</h1>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center p-4">Last sale price 0.42 ETH</p>
+                <div
+                x-data="{ 
+                  collapseButton: false,
+                  focusClass: 'hidden',
+                }">
+                  <div class="flex flex-row justify-center space-x-4 pl-12 pr-12">
+                      <button class="bg-gradient-to-b from-[#008060] to-[#00e6ac] rounded-[16px] w-80 h-12">
+                          <span class="text-l max-[923px]:text-sm font-bold text-white">Buy now for 0.05 ETH</span>
+                      </button>
+                      <button
+                      @click="collapseButton = ! collapseButton" 
+                      type="button" 
+                      class="bg-black rounded-[16px] w-12 h-12">
+                          <span
+                          :class="collapseButton === true ? focusClass : ''"
+                          class="text-3xl leading-[0.75] text-white">+</span>
+                          <span
+                          :class="collapseButton === false ? focusClass : ''"
+                          class="text-3xl leading-[0.75] text-white">-</span>
+                      </button>
+                  </div>
+                  <div class="flex flex-row justify-center" x-show="collapseButton" x-collapse.duration.1000ms>
+                    <div class="mt-5">
+                      <input class="border border-gray-500 rounded-[16px] pl-4 pr-4 w-11/12 h-12 focus:border-[#00e6ac] focus:outline-none" placeholder="Add Coupon...">
+                    </div>
+                    <button class="bg-gradient-to-b from-[#008060] to-[#00e6ac] rounded-[16px] w-20 h-12 mt-5">
+                      <span class="text-l max-[923px]:text-sm font-bold text-white">Apply</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="text-xs max-[1242px]:text-[10px] max-[923px]:text-[8px] text-right p-8 max-[1242px]:p-2 max-[1242px]:pt-6">
+                    <p>Please read our <a class="font-bold underline" href="#">Terms and Conditions</a> before purchasing an NFT.</p>
+                    <div class="flex flex-row-reverse pt-2 pr-6">
+                        <p class="pl-1">I have read and agree to The Terms and Conditions.</p>
+                        <input type="checkbox">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
